@@ -64,7 +64,7 @@ class OpenAIProvider(BaseLLMProvider):
             You must generate at least {min_pairs} training pairs for this text. If you generate fewer pairs, it will be considered incomplete.'''
 
             response = self.client.chat.completions.create(
-                model="gpt-3.5-turbo",
+                model="gpt-3.5-turbo-16k",
                 messages=[
                     {
                         "role": "system",
@@ -75,7 +75,7 @@ class OpenAIProvider(BaseLLMProvider):
                         "content": prompt
                     }
                 ],
-                max_tokens=4000,
+                max_tokens=8000,
                 temperature=0.7
             )
             
